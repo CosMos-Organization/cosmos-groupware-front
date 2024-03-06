@@ -1,6 +1,6 @@
 .left_main {
     font-family: Pretendard Variable;
-    width: 346px;
+    width: 320px;
     height: 100vh;
     background-color: #FFFFFF;
     position: relative;
@@ -14,7 +14,7 @@
 
     .date_box {
         text-align: center;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         margin-top: 25px;
         margin-bottom: 8px;
@@ -37,14 +37,14 @@
         margin-bottom: 44px;
 
         h2 {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .department_box {
             position: relative;
-            font-size: 15px;
+            font-size: 14px;
             color: #7E7979;
 
             .logout_button {
@@ -59,7 +59,7 @@
     .brief_schedule_wrapper {
         display: flex;
         justify-content: space-around;
-        font-size: 15px;
+        font-size: 14px;
         margin-bottom: 61px;
 
         p {
@@ -85,7 +85,7 @@
             justify-content: center;
 
             h1 {
-                font-size: 22px;
+                font-size: 20px;
                 font-weight: 600;
             }
 
@@ -108,7 +108,7 @@
         bottom: 16px;
         right: 15px;
         display: flex;
-        font-size: 16px;
+        font-size: 14px;
         color: #676464;
 
         p {
