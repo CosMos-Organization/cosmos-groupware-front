@@ -17,7 +17,7 @@ const Leftbar_min = () => {
             <div className={style.category_wrapper}>
                 <div className={style.category_box}>
                     <div className={style.svg_box}>
-                        <img src='/category_mail.svg' alt='mail_svg' />
+                        <img src='/svg/category_mail.svg' alt='mail_svg' />
                     </div>
                     <div className={style.title_box}>
                         <h3>메일</h3>
@@ -25,7 +25,7 @@ const Leftbar_min = () => {
                 </div>
                 <div className={style.category_box}>
                     <div className={style.svg_box}>
-                        <img src='/category_board.svg' alt='board_svg' />
+                        <img src='/svg/category_board.svg' alt='board_svg' />
                     </div>
                     <div className={style.title_box}>
                         <h3>게시판</h3>
@@ -33,7 +33,7 @@ const Leftbar_min = () => {
                 </div>
                 <div className={style.category_box}>
                     <div className={style.svg_box}>
-                        <img src='/category_schedule.svg' alt='schedule_svg' />
+                        <img src='/svg/category_schedule.svg' alt='schedule_svg' />
                     </div>
                     <div className={style.title_box}>
                         <h3>일정관리</h3>
@@ -41,7 +41,7 @@ const Leftbar_min = () => {
                 </div>
                 <div className={style.category_box}>
                     <div className={style.svg_box}>
-                        <img src='/category_attendance.svg' alt='attendance_svg' />
+                        <img src='/svg/category_attendance.svg' alt='attendance_svg' />
                     </div>
                     <div className={style.title_box}>
                         <h3>근태관리</h3>
@@ -49,7 +49,7 @@ const Leftbar_min = () => {
                 </div>
                 <div className={style.category_box}>
                     <div className={style.svg_box}>
-                        <img src='/category_admin.svg' alt='admin_svg' />
+                        <img src='/svg/category_admin.svg' alt='admin_svg' />
                     </div>
                     <div className={style.title_box}>
                         <h3>관리자</h3>

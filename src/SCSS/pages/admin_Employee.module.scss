@@ -186,5 +186,56 @@
             }
 
         }
+
+        .modal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+
+            .modal_content{
+                width: 500px;
+                height: 500px;
+                background-color: #FFFFFF;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+
+                .modal_title{
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+
+                .modal_input{
+                    width: 300px;
+                    height: 40px;
+                    margin-bottom: 20px;
+                }
+
+                .modal_btn_wrapper{
+                    display: flex;
+                    justify-content: space-around;
+                    width: 100%;
+
+                    .modal_btn{
+                        width: 100px;
+                        height: 40px;
+                        border: 1px solid;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Banner from '../components/Banner'
 import Leftbar_min from '../components/Leftbar_min'
 import style from '../SCSS/pages/admin_Employee.module.scss';
 
 const Admin_Employee = () => {
+
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
+
+
+
     return (
         <div className={style.main}>
             <Banner />
@@ -37,7 +51,7 @@ const Admin_Employee = () => {
                         </select>
                         <input type="text" />
                         <div className={style.search_btn}>
-                            <img src='/search_glass.svg' alt='search_glass' />
+                            <img src='/svg/search_glass.svg' alt='search_glass' />
                         </div>
                     </div>
                 </form>
@@ -291,19 +305,30 @@ const Admin_Employee = () => {
                         </tr>
                     </table>
                     <div className={style.employee_plus_btn_wrapper}>
-                        <div className={style.employee_plus_btn}>
+                        <div className={style.employee_plus_btn} onClick={openModal}>
                             사원등록
                         </div>
                     </div>
                     <div className={style.table_page_wrapper}>
-                        <img src='/left_arrow.svg' alt='left_arrow' />
+                        <img src='/svg/left_arrow.svg' alt='left_arrow' />
                         <div className={style.page_number_box}>
                             1
                         </div>
-                        <img src='/right_arrow.svg' alt='right_arrow' />
+                        <img src='/svg/right_arrow.svg' alt='right_arrow' />
                     </div>
                 </div>
+                {showModal && (
+                    <div className={style.modal}>
+                        <div className={style.modal_content}>
+                            <h2>Modal Title</h2>
+                            <p>Modal content goes here...</p>
+                            <button onClick={closeModal}>Close Modal</button>
+                        </div>
+                    </div>
+                )}
             </div>
+
+
         </div>
     )
 }

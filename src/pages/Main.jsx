@@ -7,7 +7,7 @@ const Main = () => {
 
     return (
         <div className={style.main}>
-            <Banner />
+            {/* <Banner /> */}
             <Leftbar />
 
         </div>

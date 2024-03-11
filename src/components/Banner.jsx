@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className={style.banner_main}>
             <div className={style.banner_box}>
-                <img src='/banner.svg' alt='banner_svg' />
+                <img src='/svg/banner.svg' alt='banner_svg' />
 
             </div>
 
