@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Banner from '../components/Banner'
 import Leftbar_min from '../components/Leftbar_min'
 import style from '../SCSS/pages/admin_Employee.module.scss';
+import axios from 'axios';
 
 const Admin_Employee = () => {
 
@@ -16,7 +17,35 @@ const Admin_Employee = () => {
     };
 
 
+    const [id, setId] = useState('')
+    const [name, setName] = useState('')
+    const [department, setDepartment] = useState('')
+    const [position, setPosition] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
 
+
+    const handdleSubmit = async (e) => {
+        e.preventDefault()
+
+        let member = {
+            memberid: id,
+            name: name,
+            department: department,
+            position: position,
+            phone: phone,
+            email: email
+        }
+        try {
+
+            console.log('멤버확인', member);
+            const response = await axios.post('http://localhost:8080/member/', member)
+            console.log(response.data)
+        } catch (error) {
+
+        }
+
+    }
 
     return (
         <div className={style.main}>
@@ -320,9 +349,16 @@ const Admin_Employee = () => {
                 {showModal && (
                     <div className={style.modal}>
                         <div className={style.modal_content}>
-                            <h2>Modal Title</h2>
-                            <p>Modal content goes here...</p>
-                            <button onClick={closeModal}>Close Modal</button>
+                            <form>
+                                <input type="text" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
+                                <input type="text" placeholder="사원명" value={name} onChange={(e) => setName(e.target.value)} />
+                                <input type="text" placeholder="부서" value={department} onChange={(e) => setDepartment(e.target.value)} />
+                                <input type="text" placeholder="직급" value={position} onChange={(e) => setPosition(e.target.value)} />
+                                <input type="text" placeholder="휴대폰 번호" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                <input type="text" placeholder="이메일" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <button onClick={handdleSubmit}>저장</button>
+                                <button onClick={closeModal}>닫기</button>
+                            </form>
                         </div>
                     </div>
                 )}
