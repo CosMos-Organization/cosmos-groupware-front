@@ -349,16 +349,72 @@ const Admin_Employee = () => {
                 {showModal && (
                     <div className={style.modal}>
                         <div className={style.modal_content}>
-                            <form>
-                                <input type="text" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
-                                <input type="text" placeholder="사원명" value={name} onChange={(e) => setName(e.target.value)} />
-                                <input type="text" placeholder="부서" value={department} onChange={(e) => setDepartment(e.target.value)} />
-                                <input type="text" placeholder="직급" value={position} onChange={(e) => setPosition(e.target.value)} />
-                                <input type="text" placeholder="휴대폰 번호" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                                <input type="text" placeholder="이메일" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                <button onClick={handdleSubmit}>저장</button>
-                                <button onClick={closeModal}>닫기</button>
-                            </form>
+
+                            <h2>사원 정보를 입력해 주세요.</h2>
+                            <hr />
+                            <div className={style.form_wrapper}>
+                                <form>
+                                    <div className={style.input_wrapper}>
+                                        <div className={style.label_box}>
+                                            <p>아이디</p>
+                                        </div>
+                                        <div className={style.input_box}>
+                                            <input type="text" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className={style.input_wrapper}>
+                                        <div className={style.label_box}>
+                                            <p>비밀번호</p>
+                                        </div>
+                                        <div className={style.input_box}>
+                                            <input type="text" placeholder="사원명" value={name} onChange={(e) => setName(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className={style.input_grid_2}>
+                                        <div className={style.input_wrapper}>
+                                            <div className={style.label_box}>
+                                                <p>이름</p>
+                                            </div>
+                                            <div className={style.input_box}>
+                                                <input type="text" placeholder="부서" value={department} onChange={(e) => setDepartment(e.target.value)} />
+                                            </div>
+                                        </div>
+                                        <div className={style.input_wrapper}>
+                                            <div className={style.label_box}>
+                                                <p>휴대폰</p>
+                                            </div>
+                                            <div className={style.input_box}>
+                                                <input type="text" placeholder="직급" value={position} onChange={(e) => setPosition(e.target.value)} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className={style.input_grid_2}>
+                                        <div className={style.input_wrapper}>
+                                            <div className={style.label_box}>
+                                                <p>부서</p>
+                                            </div>
+                                            <div className={style.input_box}>
+                                                <select>
+                                                    <option value="">사업1팀</option>
+                                                    <option value="">사업2팀</option>
+                                                    <option value="">전략기획본부</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className={style.input_wrapper}>
+                                            <div className={style.label_box}>
+                                                <p>직급</p>
+                                            </div>
+                                            <div className={style.input_box}>
+                                                <input type="text" placeholder="휴대폰 번호" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button onClick={handdleSubmit}>저장</button>
+                                    <button onClick={closeModal}>닫기</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 )}
