@@ -201,13 +201,14 @@
 
             .modal_content {
                 width: 500px;
-                height: 500px;
+                height: 400px;
                 background-color: #FFFFFF;
                 border-radius: 10px;
                 padding: 20px 24px;
 
                 h2 {
-                    font-size: 16px;
+                    font-size: 18px;
+                    font-weight: 600;
                     margin-bottom: 11px;
                 }
 
@@ -246,10 +247,11 @@
                         }
 
                         select {
-                            // background: url('/svg/select_arrow.png') no-repeat right 24px center;
+                            background: url('../../../public/svg/select_arrow.svg') no-repeat right 8px center;
                         }
 
-                        input:focus {
+                        input:focus,
+                        select:focus {
                             border-color: #86b7fe;
                             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
                             outline: 0;
@@ -257,6 +259,30 @@
                     }
 
 
+                }
+
+                .button_wrapper {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 17px;
+
+                    .cancle_btn {
+                        width: 55px;
+                        height: 30px;
+                        border-radius: 5px;
+                        background-color: #F5F4F7;
+                        border: 0;
+                        margin-right: 14px;
+                    }
+
+                    .save_btn {
+                        color: white;
+                        width: 55px;
+                        height: 30px;
+                        border-radius: 5px;
+                        background-color: #7900DF;
+                        border: 0;
+                    }
                 }
 
                 .input_grid_2 {

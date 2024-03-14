@@ -407,12 +407,28 @@ const Admin_Employee = () => {
                                                 <p>직급</p>
                                             </div>
                                             <div className={style.input_box}>
-                                                <input type="text" placeholder="휴대폰 번호" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                                <select>
+                                                    <option value="">사원</option>
+                                                    <option value="">대리</option>
+                                                    <option value="">과장</option>
+                                                    <option value="">차장</option>
+                                                    <option value="">부장</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <button onClick={handdleSubmit}>저장</button>
-                                    <button onClick={closeModal}>닫기</button>
+                                    <div className={style.input_wrapper}>
+                                        <div className={style.label_box}>
+                                            <p>사진</p>
+                                        </div>
+                                        <div className={style.input_box}>
+                                            <input type="text" placeholder="사원명" value={name} onChange={(e) => setName(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className={style.button_wrapper}>
+                                        <button className={style.cancle_btn} onClick={closeModal}>취소</button>
+                                        <button className={style.save_btn} onClick={handdleSubmit}>저장</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
