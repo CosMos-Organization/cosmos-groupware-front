@@ -5,7 +5,7 @@ const Leftbar = () => {
     return (
         <div className={style.left_main}>
             <div className={style.logo_box}>
-                <img src='/logo_title_new.svg' />
+                <img src='/svg/logo_title_new.svg' />
             </div>
 
             <div className={style.date_box}>

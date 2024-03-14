@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '../components/Banner'
 import Leftbar_min from '../components/Leftbar_min'
 import style from '../SCSS/pages/admin_Employee.module.scss';
@@ -6,8 +6,9 @@ import axios from 'axios';
 
 const Admin_Employee = () => {
 
-    const [showModal, setShowModal] = useState(false);
 
+    /* 모달 */
+    const [showModal, setShowModal] = useState(false);
     const openModal = () => {
         setShowModal(true);
     };
@@ -15,37 +16,62 @@ const Admin_Employee = () => {
     const closeModal = () => {
         setShowModal(false);
     };
+    /* 모달 */
 
 
-    const [id, setId] = useState('')
+
+    /* 사원등록 */
+    const [memberId, setMemberId] = useState('')
+    const [password, setPassword] = useState('')
     const [name, setName] = useState('')
-    const [department, setDepartment] = useState('')
-    const [position, setPosition] = useState('')
     const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
+    const [department, setDepartment] = useState('사업 1팀')
+    const [position, setPosition] = useState('사원')
 
 
     const handdleSubmit = async (e) => {
         e.preventDefault()
-
         let member = {
-            memberid: id,
+            memberId: memberId,
+            password: password,
             name: name,
+            phone: phone,
             department: department,
             position: position,
-            phone: phone,
-            email: email
         }
         try {
-
             console.log('멤버확인', member);
-            const response = await axios.post('http://localhost:8080/member/', member)
+            const response = await axios.post('http://localhost:8080/member/insert', member)
             console.log(response.data)
         } catch (error) {
 
         }
-
     }
+    /* 사원등록 */
+
+    const [memberList, setMemberList] = useState([]);
+
+    const getMemberList = async (e) => {
+        try {
+            const response = await axios.get('http://localhost:8080/member/list');
+            console.log(response.data);
+            setMemberList(response.data);
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        getMemberList();
+    }, []);
+
+    /* 사원조회  */
+
+
+
+
+
+    /* 사원조회  */
 
     return (
         <div className={style.main}>
@@ -116,222 +142,24 @@ const Admin_Employee = () => {
                                 관리
                             </th>
                         </tr>
-                        <tr>
-                            <td>
-                                csh
-                            </td>
-                            <td>
-                                최수환
-                            </td>
-                            <td>
-                                사업 1팀
-                            </td>
-                            <td>
-                                사원
-                            </td>
-                            <td>
-                                010-1111-2222
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td>
-                                csh@naver.com
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td className={style.table_btn_wrapper}>
-                                <div className={style.table_btn_box}>
-                                    <div>
-                                        수정
+                        {memberList.map((member) => (
+                            <tr key={member.memberId}>
+                                <td>{member.memberId}</td>
+                                <td>{member.name}</td>
+                                <td>{member.department}</td>
+                                <td>{member.position}</td>
+                                <td>{member.phone}</td>
+                                <td>-</td>
+                                <td>{/* 이메일 값 추가 필요 */}</td>
+                                <td>-</td>
+                                <td className={style.table_btn_wrapper}>
+                                    <div className={style.table_btn_box}>
+                                        <div>수정</div>
+                                        <div>삭제</div>
                                     </div>
-                                    <div>
-                                        삭제
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                csh
-                            </td>
-                            <td>
-                                최수환
-                            </td>
-                            <td>
-                                사업 1팀
-                            </td>
-                            <td>
-                                사원
-                            </td>
-                            <td>
-                                010-1111-2222
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td>
-                                csh@naver.com
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td className={style.table_btn_wrapper}>
-                                <div className={style.table_btn_box}>
-                                    <div>
-                                        수정
-                                    </div>
-                                    <div>
-                                        삭제
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                csh
-                            </td>
-                            <td>
-                                최수환
-                            </td>
-                            <td>
-                                사업 1팀
-                            </td>
-                            <td>
-                                사원
-                            </td>
-                            <td>
-                                010-1111-2222
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td>
-                                csh@naver.com
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td className={style.table_btn_wrapper}>
-                                <div className={style.table_btn_box}>
-                                    <div>
-                                        수정
-                                    </div>
-                                    <div>
-                                        삭제
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                csh
-                            </td>
-                            <td>
-                                최수환
-                            </td>
-                            <td>
-                                사업 1팀
-                            </td>
-                            <td>
-                                사원
-                            </td>
-                            <td>
-                                010-1111-2222
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td>
-                                csh@naver.com
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td className={style.table_btn_wrapper}>
-                                <div className={style.table_btn_box}>
-                                    <div>
-                                        수정
-                                    </div>
-                                    <div>
-                                        삭제
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                csh
-                            </td>
-                            <td>
-                                최수환
-                            </td>
-                            <td>
-                                사업 1팀
-                            </td>
-                            <td>
-                                사원
-                            </td>
-                            <td>
-                                010-1111-2222
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td>
-                                csh@naver.com
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td className={style.table_btn_wrapper}>
-                                <div className={style.table_btn_box}>
-                                    <div>
-                                        수정
-                                    </div>
-                                    <div>
-                                        삭제
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                csh
-                            </td>
-                            <td>
-                                최수환
-                            </td>
-                            <td>
-                                사업 1팀
-                            </td>
-                            <td>
-                                사원
-                            </td>
-                            <td>
-                                010-1111-2222
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td>
-                                csh@naver.com
-                            </td>
-                            <td>
-                                -
-                            </td>
-                            <td className={style.table_btn_wrapper}>
-                                <div className={style.table_btn_box}>
-                                    <div>
-                                        수정
-                                    </div>
-                                    <div>
-                                        삭제
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        ))}
                     </table>
                     <div className={style.employee_plus_btn_wrapper}>
                         <div className={style.employee_plus_btn} onClick={openModal}>
@@ -359,7 +187,7 @@ const Admin_Employee = () => {
                                             <p>아이디</p>
                                         </div>
                                         <div className={style.input_box}>
-                                            <input type="text" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
+                                            <input type="text" placeholder="아이디" value={memberId} onChange={(e) => setMemberId(e.target.value)} />
                                         </div>
                                     </div>
                                     <div className={style.input_wrapper}>
@@ -367,7 +195,7 @@ const Admin_Employee = () => {
                                             <p>비밀번호</p>
                                         </div>
                                         <div className={style.input_box}>
-                                            <input type="text" placeholder="사원명" value={name} onChange={(e) => setName(e.target.value)} />
+                                            <input type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
                                         </div>
                                     </div>
                                     <div className={style.input_grid_2}>
@@ -376,7 +204,7 @@ const Admin_Employee = () => {
                                                 <p>이름</p>
                                             </div>
                                             <div className={style.input_box}>
-                                                <input type="text" placeholder="부서" value={department} onChange={(e) => setDepartment(e.target.value)} />
+                                                <input type="text" placeholder="이름" value={name} onChange={(e) => setName(e.target.value)} />
                                             </div>
                                         </div>
                                         <div className={style.input_wrapper}>
@@ -384,7 +212,7 @@ const Admin_Employee = () => {
                                                 <p>휴대폰</p>
                                             </div>
                                             <div className={style.input_box}>
-                                                <input type="text" placeholder="직급" value={position} onChange={(e) => setPosition(e.target.value)} />
+                                                <input type="text" placeholder="휴대폰" value={phone} onChange={(e) => setPhone(e.target.value)} />
                                             </div>
                                         </div>
                                     </div>
@@ -395,10 +223,10 @@ const Admin_Employee = () => {
                                                 <p>부서</p>
                                             </div>
                                             <div className={style.input_box}>
-                                                <select>
-                                                    <option value="">사업1팀</option>
-                                                    <option value="">사업2팀</option>
-                                                    <option value="">전략기획본부</option>
+                                                <select value={department} onChange={(e) => setDepartment(e.target.value)}>
+                                                    <option value="사업1팀">사업1팀</option>
+                                                    <option value="사업2팀">사업2팀</option>
+                                                    <option value="전략기획본부">전략기획본부</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -407,12 +235,12 @@ const Admin_Employee = () => {
                                                 <p>직급</p>
                                             </div>
                                             <div className={style.input_box}>
-                                                <select>
-                                                    <option value="">사원</option>
-                                                    <option value="">대리</option>
-                                                    <option value="">과장</option>
-                                                    <option value="">차장</option>
-                                                    <option value="">부장</option>
+                                                <select value={position} onChange={(e) => setPosition(e.target.value)}>
+                                                    <option value="사원">사원</option>
+                                                    <option value="대리">대리</option>
+                                                    <option value="과장">과장</option>
+                                                    <option value="차장">차장</option>
+                                                    <option value="부장">부장</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -422,7 +250,7 @@ const Admin_Employee = () => {
                                             <p>사진</p>
                                         </div>
                                         <div className={style.input_box}>
-                                            <input type="text" placeholder="사원명" value={name} onChange={(e) => setName(e.target.value)} />
+                                            <input type="text" placeholder="사진" />
                                         </div>
                                     </div>
                                     <div className={style.button_wrapper}>
