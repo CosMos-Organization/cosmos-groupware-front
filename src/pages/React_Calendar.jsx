@@ -1,12 +1,11 @@
 import React from 'react'
-import Calendar from 'react-calendar'
-import style from '../SCSS/pages/React_Calender.module.scss'
+import style from '../SCSS/pages/React_Calendar.module.scss'
 import Banner from '../components/Banner'
 import Leftbar_min from '../components/Leftbar_min'
-import 'react-calendar/dist/Calendar.css'
+import _Calendar from '../components/_Calendar'
 
 
-const React_Callender = () => {
+const React_Callendar = () => {
 
 
 
@@ -15,10 +14,10 @@ const React_Callender = () => {
             <Banner />
             <Leftbar_min />
             <div className={style.container}>
-                <Calendar />
+                <_Calendar />
             </div>
         </div>
     )
 }
 
-export default React_Callender
+export default React_Callendar
