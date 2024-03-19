@@ -63,7 +63,32 @@ const Admin_Organization = () => {
                     </div>
 
                     <div className={style.right_box}>
-                        2
+                        <div className={style.right_box_top}>
+                            <div className={style.fold_wrapper}>
+                                <div className={style.fold_title}>
+                                    전체펼침
+                                </div>
+                                <div className={style.fold_title}>
+                                    전체접힘
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.right_box_content}>
+                            <div className={style.search_wrapper}>
+                                <div className={style.depart_btn}>
+                                    부서만
+                                </div>
+                                <div className={style.comb_btn}>
+                                    부서 + 사용자
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="" placeholder='검색어입력' />
+                                </div>
+                            </div>
+                            <div>
+                                내용
+                            </div>
+                        </div>
                     </div>
                 </div>
 

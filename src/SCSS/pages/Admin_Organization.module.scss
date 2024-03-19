@@ -1,3 +1,5 @@
+@import "../abstracts/color";
+
 .main {
     height: 100vh;
     display: flex;
@@ -89,17 +91,78 @@
                     margin-top: 30px;
                     display: grid;
                     gap: 13px;
+
                     .folder_box {
                         display: flex;
                         font-size: 14px;
                         font-weight: 400;
                         align-items: center;
-                        
-                        img{
+
+                        img {
                             margin-right: 13px;
                             width: 18px;
                             height: 18px;
                         }
+                    }
+                }
+            }
+
+            .right_box {
+                width: calc(100% - 200px);
+
+                .right_box_top {
+                    height: 34px;
+                    background-color: $sub-color;
+                    border: 0;
+                    display: flex;
+                    font-size: 16px;
+                    align-items: center;
+
+                    .fold_wrapper {
+                        display: flex;
+                        margin-left: 50px;
+                        gap: 20px;
+
+
+                        .fold_title {
+                            font-size: 14px;
+                            font-weight: 600;
+                            border-bottom: 2px solid #4E018F;
+                        }
+                    }
+                }
+
+                .right_box_content {
+
+                    .search_wrapper {
+                        display: flex;
+                        gap: 9px;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 14px;
+                        margin-top: 26px;
+
+                        .depart_btn {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 60px;
+                            height: 25px;
+                            background-color: #F0F0F0;
+                            border-radius: 5px;
+                        }
+
+                        .comb_btn {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 86px;
+                            height: 25px;
+                            background-color: #4E018F;
+                            border-radius: 5px;
+                            color: #FFFFFF;
+                        }
+
                     }
                 }
             }
