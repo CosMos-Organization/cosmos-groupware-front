@@ -5,11 +5,11 @@
     font-family: Pretendard Variable;
 
     .container {
-        margin-top: 65px;
+        margin-top: 55px;
         width: 100%;
 
         .top_box {
-            height: 84px;
+            height: 70px;
             width: 100%;
             background-color: #FFFFFF;
 
@@ -17,12 +17,32 @@
                 display: flex;
                 height: 100%;
                 align-items: center;
+                margin-left: 100px;
 
                 .title_box {
+                    width: 10%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
                     h1 {
-                        font-size: 24px;
-                        margin-left: 99px;
+                        font-size: 20px;
                     }
+                }
+
+                .active {
+                    border-bottom: 3px solid #7900DF;
+                    width: 10%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    h1 {
+                        font-size: 20px;
+                    }
+
                 }
             }
 
