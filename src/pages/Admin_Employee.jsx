@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Banner from '../components/Banner'
 import Leftbar_min from '../components/Leftbar_min'
-import style from '../SCSS/pages/admin_Employee.module.scss';
+import style from '../SCSS/pages/Admin_Employee.module.scss';
 import axios from 'axios';
 
 const Admin_Employee = () => {

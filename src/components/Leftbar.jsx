@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../SCSS/components/leftbar.module.scss';
+import style from '../SCSS/components/Leftbar.module.scss';
 
 const Leftbar = () => {
     return (
