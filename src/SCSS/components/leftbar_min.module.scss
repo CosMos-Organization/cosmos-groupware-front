@@ -1,8 +1,10 @@
+@import "../abstracts/color";
+
 .left_main {
     font-family: Pretendard Variable;
     width: 90px;
     height: 100vh;
-    background-color: #FFFFFF;
+    background-color: $sub-color;
 
     .profile_wrapper {
         margin-top: 126px;

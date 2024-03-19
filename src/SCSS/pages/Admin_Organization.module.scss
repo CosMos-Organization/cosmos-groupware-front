@@ -1,0 +1,108 @@
+.main {
+    height: 100vh;
+    display: flex;
+    background-color: #FFFFFF;
+    font-family: Pretendard Variable;
+
+    .container {
+        margin-top: 55px;
+        width: calc(100% - 90px);
+        height: calc(100% - 55px);
+
+        .top_box {
+            height: 65px;
+            width: 100%;
+            border-bottom: 1px solid #D9D6DB;
+
+
+            .title_wrapper {
+                display: flex;
+                height: 100%;
+                align-items: center;
+                margin-left: 100px;
+
+                .title_box {
+                    width: 10%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    h1 {
+                        font-size: 20px;
+                    }
+                }
+
+                .active {
+                    border-bottom: 3px solid #7900DF;
+                    width: 10%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    h1 {
+                        font-size: 20px;
+                    }
+
+                }
+            }
+        }
+
+        .content_box {
+            display: flex;
+            height: calc(100% - 66px);
+
+            .left_box {
+                border-right: 1px solid #D9D6DB;
+                width: 200px;
+
+                .button_wrapper {
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin-top: 20px;
+                    margin-bottom: 17px;
+
+                    .add_btn {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 70px;
+                        height: 28px;
+                        background-color: #009DFF;
+                        color: white;
+                        font-size: 15px;
+                        font-weight: 500;
+                        border-radius: 3px;
+                    }
+                }
+
+                hr {
+                    width: 90%;
+                    background: #E3E4E7;
+                    border: 0;
+                    height: 1.5px;
+                }
+
+                .folder_wrapper {
+                    margin-left: 30px;
+                    margin-top: 30px;
+                    display: grid;
+                    gap: 13px;
+                    .folder_box {
+                        display: flex;
+                        font-size: 14px;
+                        font-weight: 400;
+                        align-items: center;
+                        
+                        img{
+                            margin-right: 13px;
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
