@@ -82,7 +82,7 @@ const Admin_Employee = () => {
             <div className={style.container}>
                 <div className={style.top_box}>
                     <div className={style.title_wrapper}>
-                    <div className={`${style.title_box} ${style.active}`}>
+                        <div className={`${style.title_box} ${style.active}`}>
 
                             <h1>
                                 사원 관리

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from '../SCSS/pages/Admin_Organization.module.scss';
 import Banner from '../components/Banner';
 import Leftbar_min from '../components/Leftbar_min';
@@ -125,6 +125,42 @@ const Admin_Organization = () => {
 
 
 
+    /* 모달 */
+
+
+    const inputRef = useRef(null); // ref 생성
+
+    const [showModal_1, setShowModal_1] = useState(false);
+    const openModal_1 = () => {
+        setShowModal_1(true);
+    };
+
+    const closeModal_1 = () => {
+        setShowModal_1(false);
+    };
+
+
+    const [showModal_2, setShowModal_2] = useState(false);
+    const openModal_2 = () => {
+        setShowModal_2(!showModal_2);
+
+    };
+
+    useEffect(() => {
+        if (showModal_2) {
+            inputRef.current.focus();
+        }
+    }, [showModal_2]);
+
+    const closeModal_2 = () => {
+        setShowModal_2(false);
+    };
+
+    /* 모달 */
+
+
+
+
 
 
 
@@ -160,38 +196,55 @@ const Admin_Organization = () => {
                 <div className={style.content_box}>
                     <div className={style.left_box}>
                         <div className={style.button_wrapper}>
-                            <div className={style.add_btn}>
+                            <div className={style.add_btn} onClick={openModal_1}>
                                 부서 등록
                             </div>
+
+                            {showModal_1 && (
+                                <div className={style.modal}>
+                                    <div className={style.modal_content}>
+                                        <div className={style.parent_box}>
+                                            <p>상위 부서</p>
+                                            <select name="" id="">
+                                                <option value="">대표</option>
+                                                <option value="">A 유닛</option>
+                                                <option value="">B 유닛</option>
+                                            </select>
+                                        </div>
+
+                                        <div className={style.child_box}>
+                                            <p>부서명</p>
+                                            <input type="text" name="" id="" placeholder='부서명' />
+
+                                        </div>
+
+                                        <div className={style.button_wrapper}>
+                                            <button className={style.cancle_btn} onClick={closeModal_1}>취소</button>
+                                            <button className={style.save_btn} >저장</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            )}
+
+
 
                         </div>
                         <hr />
                         <div className={style.folder_wrapper}>
-                            {/* <div className={style.folder_box}>
-                                <img src="/svg/folder_svg.svg" alt="folder" />
-                                대표
-                            </div>
-                            <div className={style.folder_box}>
-                                <img src="/svg/folder_svg.svg" alt="folder" />
-                                A 유닛
-                            </div>
-                            <div className={style.folder_box}>
-                                <img src="/svg/folder_svg.svg" alt="folder" />
-                                B 유닛
-                            </div>
-                            <div className={style.folder_box}>
-                                <img src="/svg/folder_svg.svg" alt="folder" />
-                                B1 팀
-                            </div> */}
 
                             <Organization_Sub initialTreeData={SubTreeData} key='sub' />
                         </div>
                         <hr />
                         <div className={style.button_wrapper}>
 
-                            <div className={style.add_btn}>
+                            <div className={style.add_btn} onClick={openModal_2}>
                                 직급 등록
                             </div>
+
+
+
                         </div>
                         <hr />
                         <div className={style.rank_wrapper}>
@@ -219,6 +272,18 @@ const Admin_Organization = () => {
                                     B1 팀
                                 </div>
                             </div>
+                            {showModal_2 && (
+                                <div className={style.rank_box_add}>
+                                    <div className={style.rank_title}>
+                                        <img src='/org/human.svg' alt='human' />
+                                        <input type="text" ref={inputRef} name="" id="" />
+                                    </div>
+                                    <div className={style.button_wrapper_rank}>
+                                        <button className={style.cancle_btn} onClick={closeModal_2}>취소</button>
+                                        <button className={style.save_btn} >저장</button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
 
