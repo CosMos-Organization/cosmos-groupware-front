@@ -35,7 +35,7 @@ const TreeItem = ({ label, id, depth, type, expand, children }) => {
 
     return (
         <div className={style.tree_item_wrapper} style={{ marginLeft: `${depth * 20}px` }}>
-            <div onClick={handleClick}>
+            <div className={style.tree_item_box} onClick={handleClick}>
                 <img src={getImagePath()} alt={type} /> {label}
             </div>
             {isExpanded && children && children.map(child => (

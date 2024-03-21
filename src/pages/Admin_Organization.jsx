@@ -163,9 +163,7 @@ const Admin_Organization = () => {
                             <div className={style.add_btn}>
                                 부서 등록
                             </div>
-                            <div className={style.add_btn}>
-                                직급 등록
-                            </div>
+
                         </div>
                         <hr />
                         <div className={style.folder_wrapper}>
@@ -187,10 +185,43 @@ const Admin_Organization = () => {
                             </div> */}
 
                             <Organization_Sub initialTreeData={SubTreeData} key='sub' />
-
-
-
                         </div>
+                        <hr />
+                        <div className={style.button_wrapper}>
+
+                            <div className={style.add_btn}>
+                                직급 등록
+                            </div>
+                        </div>
+                        <hr />
+                        <div className={style.rank_wrapper}>
+                            <div className={style.rank_box}>
+                                <div className={style.rank_title}>
+                                    <img src='/org/human.svg' alt='human' />
+                                    대표
+                                </div>
+                            </div>
+                            <div className={style.rank_box}>
+                                <div className={style.rank_title}>
+                                    <img src='/org/human.svg' alt='human' />
+                                    A 유닛
+                                </div>
+                            </div>
+                            <div className={style.rank_box}>
+                                <div className={style.rank_title}>
+                                    <img src='/org/human.svg' alt='human' />
+                                    B 유닛
+                                </div>
+                            </div>
+                            <div className={style.rank_box}>
+                                <div className={style.rank_title}>
+                                    <img src='/org/human.svg' alt='human' />
+                                    B1 팀
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <div className={style.right_box}>
