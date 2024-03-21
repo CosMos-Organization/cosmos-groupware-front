@@ -2,8 +2,134 @@ import React from 'react'
 import style from '../SCSS/pages/Admin_Organization.module.scss';
 import Banner from '../components/Banner';
 import Leftbar_min from '../components/Leftbar_min';
+import Organization from '../components/Organization';
+import Organization_Sub from '../components/Organization_Sub';
 
 const Admin_Organization = () => {
+
+
+    const initialTreeData = [
+        {
+            id: '1',
+            label: '(주)코스모스오피스',
+            depth: 0,
+            type: 'root',
+            expand: true,
+            children: [
+                {
+                    id: '2',
+                    label: '대표',
+                    depth: 1,
+                    type: 'department',
+                    expand: false,
+                    children: [
+                        {
+                            id: '3',
+                            label: '김철수 대표',
+                            depth: 2,
+                            type: 'employee',
+                            expand: false,
+                            children: []
+                        }
+                    ]
+                },
+                {
+                    id: '4',
+                    label: 'A 유닛',
+                    depth: 1,
+                    type: 'department',
+                    expand: false,
+                    children: []
+                },
+                {
+                    id: '5',
+                    label: 'B 유닛',
+                    depth: 1,
+                    type: 'department',
+                    expand: false,
+                    children: [
+                        {
+                            id: '6',
+                            label: 'B1 팀',
+                            depth: 2,
+                            type: 'department',
+                            expand: false,
+                            children: [
+                                {
+                                    id: '7',
+                                    label: '홍길동 팀장',
+                                    depth: 3,
+                                    type: 'employee',
+                                    expand: false,
+                                    children: []
+                                },
+                                {
+                                    id: '8',
+                                    label: '이순신 팀원',
+                                    depth: 3,
+                                    type: 'employee',
+                                    expand: false,
+                                    children: []
+                                },
+                            ]
+                        }
+                    ]
+                },
+            ]
+        }
+    ];
+
+    const SubTreeData = [
+        {
+            id: '2',
+            label: '대표',
+            depth: 1,
+            type: 'department',
+            expand: true,
+        },
+        {
+            id: '4',
+            label: 'A 유닛',
+            depth: 1,
+            type: 'department',
+            expand: true,
+            children: []
+        },
+        {
+            id: '5',
+            label: 'B 유닛',
+            depth: 1,
+            type: 'department',
+            expand: true,
+            children: [
+                {
+                    id: '6',
+                    label: 'B1 팀',
+                    depth: 0.8,
+                    type: 'department',
+                    expand: true,
+                    children: [
+                        {
+                            id: '7',
+                            label: 'B2 팀',
+                            depth: 0.8,
+                            type: 'department',
+                            expand: true,
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+
+
+
+
+
+
+
+
     return (
         <div className={style.main}>
             <Banner />
@@ -43,22 +169,27 @@ const Admin_Organization = () => {
                         </div>
                         <hr />
                         <div className={style.folder_wrapper}>
-                            <div className={style.folder_box}>
+                            {/* <div className={style.folder_box}>
                                 <img src="/svg/folder_svg.svg" alt="folder" />
                                 대표
                             </div>
                             <div className={style.folder_box}>
                                 <img src="/svg/folder_svg.svg" alt="folder" />
-                                사업 1팀
+                                A 유닛
                             </div>
                             <div className={style.folder_box}>
                                 <img src="/svg/folder_svg.svg" alt="folder" />
-                                사업 2팀
+                                B 유닛
                             </div>
                             <div className={style.folder_box}>
                                 <img src="/svg/folder_svg.svg" alt="folder" />
-                                사업 3팀
-                            </div>
+                                B1 팀
+                            </div> */}
+
+                            <Organization_Sub initialTreeData={SubTreeData} key='sub' />
+
+
+
                         </div>
                     </div>
 
@@ -85,8 +216,8 @@ const Admin_Organization = () => {
                                     <input type="text" name="" id="" placeholder='검색어입력' />
                                 </div>
                             </div>
-                            <div>
-                                내용
+                            <div className={style.org_component_wrapper}>
+                                <Organization initialTreeData={initialTreeData} key='main' />
                             </div>
                         </div>
                     </div>
