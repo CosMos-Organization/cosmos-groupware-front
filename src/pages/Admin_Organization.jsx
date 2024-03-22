@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import style from '../SCSS/pages/Admin_Organization.module.scss';
 import Banner from '../components/Banner';
 import Leftbar_min from '../components/Leftbar_min';
 import Organization from '../components/Organization';
 import Organization_Sub from '../components/Organization_Sub';
+import axios from 'axios';
 
 const Admin_Organization = () => {
 
@@ -158,8 +159,28 @@ const Admin_Organization = () => {
 
     /* 모달 */
 
+    const [parentDepart, setParentDepart] = useState('대표');
+    const [childDepart, setChildDepart] = useState('');
+    const [rank, setRank] = useState('');
 
 
+    const handdleSubmit_department = async (e) => {
+        e.preventDefault();
+
+        const depart = {
+            parentDepart: parentDepart,
+            childDepart: childDepart,
+        }
+
+
+
+        try {
+            const response = await axios.post('http://localhost:8080/department/insert', depart);
+            console.log(response.data);
+        } catch (error) {
+
+        }
+    }
 
 
 
@@ -205,22 +226,22 @@ const Admin_Organization = () => {
                                     <div className={style.modal_content}>
                                         <div className={style.parent_box}>
                                             <p>상위 부서</p>
-                                            <select name="" id="">
-                                                <option value="">대표</option>
-                                                <option value="">A 유닛</option>
-                                                <option value="">B 유닛</option>
+                                            <select value={parentDepart} onChange={(e) => setParentDepart(e.target.value)}>
+                                                <option value="대표">대표</option>
+                                                <option value="A 유닛">A 유닛</option>
+                                                <option value="B 유닛">B 유닛</option>
                                             </select>
                                         </div>
 
                                         <div className={style.child_box}>
                                             <p>부서명</p>
-                                            <input type="text" name="" id="" placeholder='부서명' />
+                                            <input type="text" placeholder='부서명' value={childDepart} onChange={(e) => setChildDepart(e.target.value)} />
 
                                         </div>
 
                                         <div className={style.button_wrapper}>
                                             <button className={style.cancle_btn} onClick={closeModal_1}>취소</button>
-                                            <button className={style.save_btn} >저장</button>
+                                            <button className={style.save_btn} onClick={handdleSubmit_department}>저장</button>
                                         </div>
 
 
@@ -276,7 +297,7 @@ const Admin_Organization = () => {
                                 <div className={style.rank_box_add}>
                                     <div className={style.rank_title}>
                                         <img src='/org/human.svg' alt='human' />
-                                        <input type="text" ref={inputRef} name="" id="" />
+                                        <input type="text" value={rank} onChange={(e) => setRank(e.target.value)} />
                                     </div>
                                     <div className={style.button_wrapper_rank}>
                                         <button className={style.cancle_btn} onClick={closeModal_2}>취소</button>
