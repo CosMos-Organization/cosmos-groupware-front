@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from '../SCSS/components/Organization.module.scss';
 
-const TreeItem = ({ label, id, depth, type, expand, children }) => {
+const TreeItem = ({ departmentName, id, depth, type, expand, children }) => {
     const [isExpanded, setIsExpanded] = useState(expand);
 
     const toggleExpand = () => {
@@ -22,7 +22,7 @@ const TreeItem = ({ label, id, depth, type, expand, children }) => {
     if (type === 'root') {
         return (
             <div style={{ marginLeft: `${depth * 20}px` }}>
-                {label}
+                {departmentName}
                 {isExpanded && children && children.map(child => (
                     <TreeItem key={child.id} {...child} />
                 ))}
@@ -36,7 +36,7 @@ const TreeItem = ({ label, id, depth, type, expand, children }) => {
     return (
         <div className={style.tree_item_wrapper} style={{ marginLeft: `${depth * 20}px` }}>
                <div className={style.tree_item_box} onClick={handleClick}>
-                {type !== 'employee' && (isExpanded ? <img src='/org/minus.svg' /> : <img src='/org/plus.svg' />)} <img src={getImagePath()} alt={type} /> {label}
+                {type !== 'employee' && (isExpanded ? <img src='/org/minus.svg' /> : <img src='/org/plus.svg' />)} <img src={getImagePath()} alt={type} /> {departmentName}
             </div>
             {isExpanded && children && children.map(child => (
                 <TreeItem key={child.id} {...child} />

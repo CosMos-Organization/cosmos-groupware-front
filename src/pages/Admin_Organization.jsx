@@ -159,6 +159,7 @@ const Admin_Organization = () => {
 
     /* 모달 */
 
+    /* 부서 create */
     const [parentDepart, setParentDepart] = useState('대표');
     const [childDepart, setChildDepart] = useState('');
     const [rank, setRank] = useState('');
@@ -172,15 +173,61 @@ const Admin_Organization = () => {
             childDepart: childDepart,
         }
 
-
-
         try {
             const response = await axios.post('http://localhost:8080/department/insert', depart);
             console.log(response.data);
+
+
         } catch (error) {
 
         }
     }
+
+    /* 부서 create */
+
+    /* 부서 조회, 트리구조 */
+
+    const [departmentTree, setDepartmentTree] = useState([]);
+    const get_department_list = async (e) => {
+
+        try {
+            const response = await axios.get('http://localhost:8080/department/list');
+            console.log(response.data);
+            const departmentTree = convertToTree(response.data);
+            console.log('트리 확인', departmentTree);
+            setDepartmentTree(departmentTree);
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        get_department_list();
+    }, [])
+
+    /* 부서 조회, 트리구조 */
+
+
+
+    const convertToTree = (departments, parentDepth = 0) => {
+        const map = {};
+        const roots = [];
+        departments.forEach((department) => {
+            const depth = parentDepth + 1;
+            map[department.departmentId] = { ...department, depth, children: [] };
+        });
+        departments.forEach((department) => {
+            const parent = map[department.parentId];
+            if (parent) {
+                parent.children.push(map[department.departmentId]);
+            } else {
+                roots.push(map[department.departmentId]);
+            }
+        });
+        return roots;
+    };
+
+
 
 
 
@@ -334,7 +381,7 @@ const Admin_Organization = () => {
                                 </div>
                             </div>
                             <div className={style.org_component_wrapper}>
-                                <Organization initialTreeData={initialTreeData} key='main' />
+                                {departmentTree && <Organization initialTreeData={departmentTree} key='main' />}
                             </div>
                         </div>
                     </div>
