@@ -1,0 +1,21 @@
+.org_main {
+    font-family: Pretendard Variable;
+
+    .tree_item_wrapper {
+        div {
+            margin-top: 14px;
+        }
+
+        .tree_item_box {
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-right: 6px;
+            }
+        }
+    }
+
+
+
+}

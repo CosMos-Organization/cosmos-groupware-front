@@ -1,17 +1,18 @@
 .main {
     height: 100vh;
     display: flex;
-    background-color: #F8F9FD;
+    background-color: #FFFFFF;
     font-family: Pretendard Variable;
 
     .container {
         margin-top: 55px;
-        width: 100%;
+        width: calc(100% - 90px);
+        height: calc(100% - 55px);
 
         .top_box {
-            height: 70px;
+            height: 65px;
             width: 100%;
-            background-color: #FFFFFF;
+            border-bottom: 1px solid #D9D6DB;
 
             .title_wrapper {
                 display: flex;
@@ -273,7 +274,7 @@
                         input:focus,
                         select:focus {
                             border-color: #86b7fe;
-                            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+                            box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, .25);
                             outline: 0;
                         }
                     }
@@ -285,6 +286,7 @@
                     display: flex;
                     justify-content: flex-end;
                     margin-top: 17px;
+                    cursor: pointer;
 
                     .cancle_btn {
                         width: 55px;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Banner from '../components/Banner'
 import Leftbar_min from '../components/Leftbar_min'
-import style from '../SCSS/pages/admin_Employee.module.scss';
+import style from '../SCSS/pages/Admin_Employee.module.scss';
 import axios from 'axios';
 
 const Admin_Employee = () => {
@@ -82,7 +82,7 @@ const Admin_Employee = () => {
             <div className={style.container}>
                 <div className={style.top_box}>
                     <div className={style.title_wrapper}>
-                    <div className={`${style.title_box} ${style.active}`}>
+                        <div className={`${style.title_box} ${style.active}`}>
 
                             <h1>
                                 사원 관리
