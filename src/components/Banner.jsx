@@ -6,7 +6,6 @@ const Banner = () => {
         <div className={style.banner_main}>
             <div className={style.banner_box}>
                 <img src='/svg/banner.svg' alt='banner_svg' />
-
             </div>
 
         </div>
