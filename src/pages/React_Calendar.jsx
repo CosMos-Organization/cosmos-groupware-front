@@ -13,6 +13,30 @@ const React_Callendar = () => {
         <div className={style.main}>
             <Banner />
             <Leftbar_min />
+            <div className={style.leftbar_calendar}>
+                <div className={style.title_wrapper}>
+                    <img src="/svg/list.svg" alt="list" />
+                    <h1>
+                        캘린더
+                    </h1>
+                </div>
+
+                <div className={style.checkbox_wrapper}>
+                    <div className={style.checkbox_box}>
+                        <input type="checkbox" name="" id="all" />
+                        <label htmlFor="all">전체</label>
+                    </div>
+                    <div className={style.checkbox_box}>
+                        <input type="checkbox" name="" id="depart" />
+                        <label htmlFor="depart">부서</label>
+                    </div>
+                    <div className={style.checkbox_box}>
+                        <input type="checkbox" name="" id="myself" />
+                        <label htmlFor="myself">내 일정</label>
+                    </div>
+                </div>
+
+            </div>
             <div className={style.container}>
                 <_Calendar />
             </div>
