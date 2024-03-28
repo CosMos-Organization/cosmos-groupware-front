@@ -4,7 +4,10 @@
     // background-color: #4E018F;
     background: rgb(93, 37, 212);
     background: linear-gradient(0deg, rgba(93, 37, 212, 1) 0%, rgba(66, 99, 185, 1) 100%);
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
     .banner_box {
         display: flex;
